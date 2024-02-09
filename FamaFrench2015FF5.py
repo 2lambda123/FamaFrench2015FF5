@@ -109,7 +109,7 @@ firmchars  = firmchars[firmchars['date_jun']>=196306].reset_index(drop = True)
 firmchars['CompCount'] = firmchars.groupby('GVKEY')['GVKEY'].transform('count')
 # Subset for EXCHCD
 firmchars = firmchars.dropna(subset = ['EXCHCD'])
-firmchars = firmchars[firmchars['EXCHCD'].isin(set([1,2,3]))]
+firmchars = firmchars[firmchars['EXCHCD'].isin({1,2,3})]
 # Define NYSE stocks for constructing breakpoints
 nyse1 = firmchars['EXCHCD'] == 1
 nyse2 = firmchars['SHRCD'] == 10.0
